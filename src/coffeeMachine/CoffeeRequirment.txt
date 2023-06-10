@@ -1,0 +1,88 @@
+
+ Requirement
+
+coffee machine has specification
+coffee machine should have different buttons (power on /off , Normal coffee, Black coffee, Drain)
+Need some ingredients to make diff type of coffee.
+coffee machine has water basin  --> bas
+coffee machine has milk basin
+coffee machine has coffee container
+coffee machine can make different type of coffees (Normal Coffee, Black Coffee)   -->Factory and strategy design
+The quantity of ingredients used for each beverage can vary. Also, the same ingredient (ex:
+water) can be used for multiple beverages.
+There would be N ( N is an integer ) outlet from which beverages can be served.
+Maximum N beverages can be served in parallel.
+There would be an indicator that would show which all ingredients are running low.
+We need some method to fill.
+
+--------------------------------------------------------------------------------------
+
+Class Diagram :-
+
+CoffeeMachine
+int id
+String brand;
+List<Button> buttons
+Map<IngredientType,Container> IngredientContainers
+IndicatorType indicatorType
+List<outlet> outlets
+outlet makeCoffee(Button button){button.makCoffee(CoffeeMachine coffeeMachine)}
+void addIngredient(IngredientType ingredientType,int quantity)
+void subtractIngredient(IngredientType ingredientType,int quantity)
+
+
+Button
+int id;
+ButtonType type;
+CoffeeMakingStrategy coffeeStrategy;
+outlet makCoffee(CoffeeMachine coffeeMachine)
+
+Enum ButtonType
+POWER OFF,POWER ON,DRAIN, COFFEE
+
+Interface CoffeeMakingStrategy
+ boolean validateIngredientRequirement(CoffeeMachine coffeeMachine)
+ outlet makeCoffee(CoffeeMachine coffeeMachine)
+
+ NormalCoffeeStrategy
+ Map<IngredientType,Integer> requiredIngredients
+ @override
+ boolean validateIngredientRequirement(CoffeeMachine coffeeMachine){}
+ @override
+ outlet makeCoffee(CoffeeMachine coffeeMachine){}
+
+ IngredientType
+ MILK, WATER, COFFEE
+
+ Container
+ int maxCapacity;
+ int minCapacity;
+ int currentCapacity;
+
+ IndicatorTye
+ RED,YELLOW, GREEN
+
+ outlet
+ int id
+ int pipeSize;
+ int outletNumber
+ OutletType outletType
+
+ enum OutletType
+ HOT_OUTLET, COLD_OUTLET, DEFAULT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
