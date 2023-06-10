@@ -9,7 +9,6 @@ public class CoffeeMachineController {
 
     CoffeeMachine coffeeMachine;
 
-    //    First Physical Design a coffee Machine
     public CoffeeMachine BuildCoffeeMachine() {
         coffeeMachine = CoffeeMachine.getBuilder()
                 .withBrand("LG")
@@ -19,7 +18,7 @@ public class CoffeeMachineController {
                 .addIngredientContainers(IngredientType.MILK, new Container(20, 5, 10))
                 .addIngredientContainers(IngredientType.WATER, new Container(20, 5, 10))
                 .addIngredientContainers(IngredientType.COFFEE, new Container(20, 5, 10))
-//                  .addOutlet(new Outlet(5,1,OutletType.HOT_OUTLET))
+                .addOutlet(new Outlet(5, 1, OutletType.HOT_OUTLET))
                 .addOutlet(new Outlet(5, 2, OutletType.COLD_OUTLET))
                 .build();
         return coffeeMachine;
