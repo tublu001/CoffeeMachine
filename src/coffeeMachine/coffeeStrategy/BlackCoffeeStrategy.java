@@ -46,7 +46,6 @@ public class BlackCoffeeStrategy implements CoffeeMakingStrategy {
         }
         if (!outletAvaliable) throw new Exception("Hot Outlet is not available");
         requiredIngredients.forEach((coffeeMachine::subtractIngredient));
-//
         return dispenseOutlet;
     }
 }

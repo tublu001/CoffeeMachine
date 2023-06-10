@@ -13,13 +13,8 @@ public class coffeeMain {
     public static void main(String[] args) {
 
         CoffeeMachineController controller = new CoffeeMachineController();
-
-//        Call a method in controller that first build a coffee Machine
-
         CoffeeMachine coffeeMachine = controller.BuildCoffeeMachine();
         Scanner scanner = new Scanner(System.in);
-
-
         boolean programState = true;
 
         while (programState) {
@@ -33,10 +28,6 @@ public class coffeeMain {
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
-
-
         }
-
-
     }
 }
